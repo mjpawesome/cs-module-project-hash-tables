@@ -1,7 +1,17 @@
 def word_count(s):
-    # Your code here
+    ignore = '"":;,.-+=/\|[]{}()*^&'
+    counts = dict()
+    lowercase = s.lower()
+    words = lowercase.split()
+    
+    for word in words:
+        word = word.strip(ignore)
+        if word in counts and word != "":
+            counts[word] += 1
+        elif word != "":
+            counts[word] = 1
 
-
+    return counts
 
 if __name__ == "__main__":
     print(word_count(""))
